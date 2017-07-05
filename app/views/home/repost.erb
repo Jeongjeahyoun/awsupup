@@ -1,0 +1,34 @@
+
+        <div class="container">
+            <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">게시판</h2>
+                        <a href="/home/about">방명록에 글남기러 가기</a>
+                    </div>
+                    <div class="mdl-card__media">
+                        <img class="article-image" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__supporting-text">
+               
+                            <% @posts.each do |p| %>
+                            <div class="well">
+                                <div class="form-group">
+                                    <%=p.id%>번째 게시물<br>
+                                    제 목 : <span style="font-weight:bold"><%=p.title%></span><br>
+                                    내 용 :<%=p.content%><br>
+                                    시 간 : <%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y년%m월%d일 %H시%M분%S초") %><br>
+                                    <% unless p.image_url.empty? %>
+                                    <img src="<%=p.image_url %>" width="400px" height"400px">
+                                    <% end %><br>
+                                    
+                                
+                                    
+                                   </div>
+                                </div>
+                            <%end%>
+                       
+
+                        </div>
+                </div>
+        </div>
+   
